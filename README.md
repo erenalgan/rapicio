@@ -8,8 +8,8 @@ This is the javascript library for rapic.io operations
 1) login()
 2) getData("ProjectName", "ObjectName")
 3) postData("ProjectName", "ObjectName", {"yourData": "here", "someOtherField": "another"})
-4) updateData("ProjectName", "ObjectName", ObjectID, {"yourData": "newValue"})
-5) deleteData("ProjectName", "ObjectName", ObjectID)
+4) updateData("ProjectName", "ObjectName", dataID, {"yourData": "newValue"})
+5) deleteData("ProjectName", "ObjectName", dataID)
 
 # example usage
 ```
