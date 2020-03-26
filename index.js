@@ -87,7 +87,6 @@ class Rapic {
                 return response.data;
             })
             .then(async (body) => {
-                console.log(body);
                 resolve("success");
             })
             .catch(error => {
@@ -97,11 +96,56 @@ class Rapic {
     }
 
     async updateData(projectName, objectName, id, data) {
-
+        await this.getAccessToken();
+        return new Promise((resolve, reject) => {
+            axios({
+              method: 'post',
+              url: `http://${this.username}.rapic.io/${projectName}/${objectName}/${id}`,
+              headers: {
+                'Authorization': `Bearer ${access}`,
+                'Content-type': 'application/json'
+              },
+              data: JSON.stringify(data),
+            })
+            .then(response => {
+                if (response.status < 200 || response.status >= 300) {
+                    reject(`failed to update data ${response.data}`);
+                }
+                return response.data;
+            })
+            .then(async (body) => {
+                resolve("success");
+            })
+            .catch(error => {
+                reject(error);
+            });
+        });
     }
 
     async deleteData(projectName, objectName, id) {
-        
+        await this.getAccessToken();
+        return new Promise((resolve, reject) => {
+            axios({
+              method: 'delete',
+              url: `http://${this.username}.rapic.io/${projectName}/${objectName}/${id}`,
+              headers: {
+                'Authorization': `Bearer ${access}`,
+                'Content-type': 'application/json'
+              },
+            })
+            .then(response => {
+                if (response.status < 200 || response.status >= 300) {
+                    reject(`failed to delete data ${response.data}`);
+                }
+                return response.data;
+            })
+            .then(async (body) => {
+                resolve("success");
+            })
+            .catch(error => {
+                reject(error);
+            });
+        });
     }
 
     async getAccessToken() {
