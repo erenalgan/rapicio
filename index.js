@@ -96,6 +96,14 @@ class Rapic {
         });
     }
 
+    async updateData(projectName, objectName, id, data) {
+
+    }
+
+    async deleteData(projectName, objectName, id) {
+        
+    }
+
     async getAccessToken() {
         let refreshToken = refresh;
         let accessToken = access;
