@@ -1,7 +1,7 @@
 const jwtDecode = require('jwt-decode');
 const axios = require('axios');
 
-const rapicUrl = "https://rapic-core-staging.herokuapp.com/"
+const rapicUrl = "https://rapicapi.herokuapp.com/"
 const loginUrl = rapicUrl + "api/token/";
 
 let access = "";
