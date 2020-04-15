@@ -2,7 +2,7 @@
 This is the javascript library for rapic.io operations
 
 # install
-`npm run install`
+`npm install rapicio`
 
 # supported operations
 1) login()
